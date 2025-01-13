@@ -1,0 +1,33 @@
+plugins {
+    id 'java-library'
+}
+
+group = 'dev.shiro8613'
+version = '1.0-SNAPSHOT'
+
+base {
+    java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+    compileJava.options.encoding = 'UTF-8'
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        name = 'ViaVersion'
+        url = 'https://repo.viaversion.com'
+    }
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    implementation 'net.raphimc:ViaProxy:3.3.7'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+tasks.register("build-package") {
+    file("build/${project.name}.jar").bytes = tasks.jar.archiveFile.get().asFile.bytes
+}

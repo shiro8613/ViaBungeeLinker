@@ -1,0 +1,8 @@
+#The name of the plugin
+name: "ViaBungeeLinkerVia"
+#The version of the plugin
+version: "1.0.0"
+#The plugin author
+author: "shiro8613"
+#The main class (must extend ViaProxyPlugin)
+main: "dev.shiro8613.viabungeelinkervia.ViaBungeeLinkerVia"
